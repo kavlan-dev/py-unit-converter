@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Конвертер</title>
+        <link rel="stylesheet" href="/static/styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Конвертер</h1>
+
+            <div class="tabs">
+                <button class="tab-button active" data-tab="length">
+                    Длина
+                </button>
+                <button class="tab-button" data-tab="weight">Вес</button>
+                <button class="tab-button" data-tab="temperature">
+                    Температура
+                </button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Length Converter -->
+                <div id="length" class="tab-pane active">
+                    <h2>Конвертация длины</h2>
+                    <form id="length-form" class="converter-form">
+                        <div class="form-group">
+                            <label for="length-value">Значение:</label>
+                            <input
+                                type="number"
+                                id="length-value"
+                                name="value"
+                                step="any"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="length-from">Из:</label>
+                            <select id="length-from" name="from_unit">
+                                <option value="millimeter">Миллиметр</option>
+                                <option value="centimeter">Сантиметр</option>
+                                <option value="meter">Метр</option>
+                                <option value="kilometer">Километр</option>
+                                <option value="inch">Дюйм</option>
+                                <option value="foot">Фут</option>
+                                <option value="yard">Ярд</option>
+                                <option value="mile">Миля</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="length-to">В:</label>
+                            <select id="length-to" name="to_unit">
+                                <option value="millimeter">Миллиметр</option>
+                                <option value="centimeter">Сантиметр</option>
+                                <option value="meter">Метр</option>
+                                <option value="kilometer">Километр</option>
+                                <option value="inch">Дюйм</option>
+                                <option value="foot">Фут</option>
+                                <option value="yard">Ярд</option>
+                                <option value="mile">Миля</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="convert-btn">
+                            Конвертировать
+                        </button>
+                    </form>
+
+                    <div id="length-result" class="result"></div>
+                </div>
+
+                <!-- Weight Converter -->
+                <div id="weight" class="tab-pane">
+                    <h2>Конвертация веса</h2>
+                    <form id="weight-form" class="converter-form">
+                        <div class="form-group">
+                            <label for="weight-value">Значение:</label>
+                            <input
+                                type="number"
+                                id="weight-value"
+                                name="value"
+                                step="any"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight-from">Из:</label>
+                            <select id="weight-from" name="from_unit">
+                                <option value="gram">Грамм</option>
+                                <option value="kilogram">Килограмм</option>
+                                <option value="pound">Фунт</option>
+                                <option value="ounce">Унция</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight-to">В:</label>
+                            <select id="weight-to" name="to_unit">
+                                <option value="gram">Грамм</option>
+                                <option value="kilogram">Килограмм</option>
+                                <option value="pound">Фунт</option>
+                                <option value="ounce">Унция</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="convert-btn">
+                            Конвертировать
+                        </button>
+                    </form>
+
+                    <div id="weight-result" class="result"></div>
+                </div>
+
+                <!-- Temperature Converter -->
+                <div id="temperature" class="tab-pane">
+                    <h2>Конвертация температуры</h2>
+                    <form id="temperature-form" class="converter-form">
+                        <div class="form-group">
+                            <label for="temperature-value">Значение:</label>
+                            <input
+                                type="number"
+                                id="temperature-value"
+                                name="value"
+                                step="any"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="temperature-from">Из:</label>
+                            <select id="temperature-from" name="from_unit">
+                                <option value="celsius">Цельсия</option>
+                                <option value="fahrenheit">Фаренгейта</option>
+                                <option value="kelvin">Кельвина</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="temperature-to">В:</label>
+                            <select id="temperature-to" name="to_unit">
+                                <option value="celsius">Цельсия</option>
+                                <option value="fahrenheit">Фаренгейта</option>
+                                <option value="kelvin">Кельвина</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="convert-btn">
+                            Конвертировать
+                        </button>
+                    </form>
+
+                    <div id="temperature-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/static/script.js"></script>
+    </body>
+</html>
