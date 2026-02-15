@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         resultElement.innerHTML = `
                     <strong>${data.value} ${data.from_unit}</strong> =
-                    <strong>${result.result} ${data.to_unit}</strong>
+                    <strong>${result.value} ${data.to_unit}</strong>
                 `;
         resultElement.style.display = "block";
       } catch (error) {

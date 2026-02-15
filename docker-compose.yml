@@ -1,10 +1,12 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
     image: py-unit-converter-backend
     container_name: py-unit-converter-backend
+    ports:
+      - "8080:8080"
     restart: unless-stopped
 
   frontend:
