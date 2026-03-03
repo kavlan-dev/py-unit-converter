@@ -1,14 +1,14 @@
 from fastapi import HTTPException
 
 from py_unit_converter.schemas.conversion import Conversion
-from py_unit_converter.utils.util import (
+from py_unit_converter.core.convert import (
     LENGTH_CONVERSION,
     TEMPERATURE_CONVERSION,
     WEIGHT_CONVERSION,
 )
 
 
-class Service:
+class ConvertService:
     def convert_length(self, value: float, from_unit: str, to_unit: str) -> Conversion:
         from_value = LENGTH_CONVERSION.get(from_unit)
         to_value = LENGTH_CONVERSION.get(to_unit)
@@ -52,3 +52,7 @@ class Service:
             from_unit=from_unit,
             to_unit=to_unit,
         )
+
+
+def get_convert_service() -> ConvertService:
+    return ConvertService()

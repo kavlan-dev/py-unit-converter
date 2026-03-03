@@ -1,25 +1,25 @@
 from fastapi import APIRouter, Depends
 
 from py_unit_converter.schemas.conversion import Conversion
-from py_unit_converter.services.service import Service
+from py_unit_converter.services.service import ConvertService, get_convert_service
 
 router = APIRouter(prefix="/api/convert", tags=["Conversion"])
 
 
-def get_service():
-    return Service()
+def get_router() -> APIRouter:
+    return router
 
 
 @router.post("/length", response_model=Conversion)
 def convert_length(
-    request: Conversion, service: Service = Depends(get_service)
+    request: Conversion, service: ConvertService = Depends(get_convert_service)
 ) -> Conversion:
     return service.convert_length(request.value, request.from_unit, request.to_unit)
 
 
 @router.post("/temperature", response_model=Conversion)
 def convert_temperature(
-    request: Conversion, service: Service = Depends(get_service)
+    request: Conversion, service: ConvertService = Depends(get_convert_service)
 ) -> Conversion:
     return service.convert_temperature(
         request.value, request.from_unit, request.to_unit
@@ -28,6 +28,6 @@ def convert_temperature(
 
 @router.post("/weight", response_model=Conversion)
 def convert_weight(
-    request: Conversion, service: Service = Depends(get_service)
+    request: Conversion, service: ConvertService = Depends(get_convert_service)
 ) -> Conversion:
     return service.convert_weight(request.value, request.from_unit, request.to_unit)
