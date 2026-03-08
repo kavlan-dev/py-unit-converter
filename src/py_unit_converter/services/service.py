@@ -1,11 +1,11 @@
 from fastapi import HTTPException
 
-from py_unit_converter.schemas.conversion import Conversion
 from py_unit_converter.core.convert import (
     LENGTH_CONVERSION,
     TEMPERATURE_CONVERSION,
     WEIGHT_CONVERSION,
 )
+from py_unit_converter.schemas.conversion import Conversion
 
 
 class ConvertService:
@@ -52,7 +52,3 @@ class ConvertService:
             from_unit=from_unit,
             to_unit=to_unit,
         )
-
-
-def get_convert_service() -> ConvertService:
-    return ConvertService()

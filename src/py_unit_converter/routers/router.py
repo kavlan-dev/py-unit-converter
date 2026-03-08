@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends
 
+from py_unit_converter.core.depends import get_convert_service
 from py_unit_converter.schemas.conversion import Conversion
-from py_unit_converter.services.service import ConvertService, get_convert_service
+from py_unit_converter.services.service import ConvertService
 
 router = APIRouter(prefix="/api/convert", tags=["Conversion"])
 

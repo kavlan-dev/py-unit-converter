@@ -1,7 +1,18 @@
 import uvicorn
-from py_unit_converter.core.depends import get_app
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-app = get_app()
+from py_unit_converter.routers.router import get_router
+
+app = FastAPI()
+app.include_router(get_router())
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
