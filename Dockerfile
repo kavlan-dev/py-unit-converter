@@ -1,11 +1,10 @@
 FROM python:alpine
 WORKDIR /app
 
-RUN pip install --upgrade pip
-RUN pip install poetry
+RUN pip install --upgrade pip && \
+    pip install poetry
 
-COPY poetry.lock pyproject.toml ./
-COPY README.md ./
+COPY poetry.lock pyproject.toml README.md ./
 COPY src/ src/
 
 RUN poetry install
