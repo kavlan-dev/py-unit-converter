@@ -105,7 +105,3 @@ class ConvertService:
             raise HTTPException(status_code=400, detail="Invalid unit")
 
         return ConversionResponse(value=result)
-
-
-def get_convert_service() -> ConvertService:
-    return ConvertService()
